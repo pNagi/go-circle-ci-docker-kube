@@ -1,4 +1,4 @@
-package math
+package sqrt
 
 // Sqrt returns an approximation to the square root of x.
 func Sqrt(x float64) float64 {

@@ -5,7 +5,8 @@ import (
   "net/http"
   "strings"
   "log"
-  "github.com/pNagi/go-circleci-docker-kube/math"
+  "github.com/pNagi/go-circleci-docker-kube/math/sqrt"
+  "github.com/pNagi/go-circleci-docker-kube/math/add"  
 )
 
 func sayhelloName(w http.ResponseWriter, r *http.Request) {
@@ -18,8 +19,9 @@ func sayhelloName(w http.ResponseWriter, r *http.Request) {
     fmt.Println("key:", k)
     fmt.Println("val:", strings.Join(v, ""))
   }
-  number := math.Sqrt(4)
-  fmt.Fprintf(w, "%s%v%s", "Hello, World! (", number, ")") // send data to client side
+  sqrtResult := sqrt.Sqrt(4)
+  addResult := add.Add(4, 4)
+  fmt.Fprintf(w, "Hello, World! (%v, %v)", sqrtResult, addResult) // send data to client side
 }
 
 func main() {
