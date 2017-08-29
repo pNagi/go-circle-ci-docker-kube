@@ -17,7 +17,7 @@ jobs:
             make test | tee ${TEST_RESULTS}/go-test.out
       - run: make
       - store_artifacts:
-        path: /tmp/test-results
-        destination: raw-test-output
+          path: /tmp/test-results
+          destination: raw-test-output
       - store_test_results:
-        path: /tmp/test-results
+          path: /tmp/test-results
