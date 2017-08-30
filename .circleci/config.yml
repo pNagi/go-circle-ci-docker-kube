@@ -8,6 +8,7 @@ jobs:
       TEST_RESULTS: /tmp/test-results
     steps:
       - checkout
+      - setup_remote_docker
       - run: mkdir -p $TEST_RESULTS
       - run: go get github.com/jstemmer/go-junit-report
       - run:
