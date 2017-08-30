@@ -22,6 +22,17 @@ jobs:
           destination: raw-test-output
       - store_test_results:
           path: /tmp/test-results
+      - run:
+          name: Install gcloud
+          command: |
+            curl https://sdk.cloud.google.com | bash
+            exec -l $SHELL
+      - run:
+          name: Auth gcloud
+          command: |
+            echo $GCLOUD_SERVICE_KEY | base64 --decode --ignore-garbage > ${HOME}/gcloud-service-key.json
+            gcloud auth activate-service-account --key-file ${HOME}/gcloud-service-key.json
+      - run: docker build -f Dockerfile -t gcr.io/firsttry-178217/go-circleci-docker-kube:$CIRCLE_SHA1 .
       - deploy:
           name: Deploy Master to GKE
           command: |
