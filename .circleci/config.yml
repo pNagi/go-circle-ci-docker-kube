@@ -21,3 +21,9 @@ jobs:
           destination: raw-test-output
       - store_test_results:
           path: /tmp/test-results
+      - deploy:
+          name: Deploy Master to GKE
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              ./deploy.sh
+            fi
