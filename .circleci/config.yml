@@ -27,7 +27,7 @@ jobs:
           name: Install gcloud
           command: |
             curl https://sdk.cloud.google.com | bash
-            exec -l $SHELL
+            alias gcloud="/opt/google-cloud-sdk/bin/gcloud"
       - run:
           name: Auth gcloud
           command: |
