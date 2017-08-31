@@ -29,6 +29,7 @@ jobs:
             curl https://sdk.cloud.google.com | bash
             if [ -f '${HOME}/google-cloud-sdk/path.${SHELL}.inc' ]; then source '${HOME}/google-cloud-sdk/path.${SHELL}.inc'; fi
             if [ -f '${HOME}/google-cloud-sdk/completion.${SHELL}.inc' ]; then source '${HOME}/google-cloud-sdk/completion.${SHELL}.inc'; fi
+            exec ${SHELL}
             gcloud components install kubectl
       - run:
           name: Auth gcloud
