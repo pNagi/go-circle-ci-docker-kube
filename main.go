@@ -20,7 +20,7 @@ func sayhelloName(w http.ResponseWriter, r *http.Request) {
     fmt.Println("val:", strings.Join(v, ""))
   }
   sqrtResult := sqrt.Sqrt(4)
-  addResult := add.Add(4, 4)
+  addResult := add.Add(4, 8)
   fmt.Fprintf(w, "Hello, World! (%v, %v)", sqrtResult, addResult) // send data to client side
 }
 
