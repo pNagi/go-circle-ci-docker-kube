@@ -27,10 +27,10 @@ jobs:
           name: Install gcloud
           command: |
             curl https://sdk.cloud.google.com | bash
-            alias gcloud="~/google-cloud-sdk/bin/gcloud"
       - run:
           name: Auth gcloud
           command: |
+            alias gcloud="~/google-cloud-sdk/bin/gcloud"
             echo $GCLOUD_SERVICE_KEY | base64 --decode --ignore-garbage > ${HOME}/gcloud-service-key.json
             gcloud auth activate-service-account --key-file ${HOME}/gcloud-service-key.json
             gcloud container clusters get-credentials ${CLUSTERS_NAME} --zone ${CLUSTERS_ZONE} --project ${PROJECT_ID}
