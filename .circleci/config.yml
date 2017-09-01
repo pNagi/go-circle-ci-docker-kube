@@ -12,6 +12,7 @@ jobs:
       - setup_remote_docker
       - run: mkdir -p $TEST_RESULTS
       - run: go get github.com/jstemmer/go-junit-report
+      - run: go install
       - run:
           name: Run unit tests
           command: |
