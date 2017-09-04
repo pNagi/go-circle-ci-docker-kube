@@ -18,7 +18,7 @@ func sayhelloName(w http.ResponseWriter, r *http.Request) {
   // fmt.Println("scheme", r.URL.Scheme)
   // fmt.Println(r.Form["url_long"])
   client := redis.NewClient(&redis.Options{
-		Addr:     "redis-service.dev:6379",
+		Addr:     "redis-service:6379",
 		Password: "", // no password set
 		DB:       0,  // use default DB
 	})
@@ -37,7 +37,7 @@ func sayhelloName(w http.ResponseWriter, r *http.Request) {
   }
   sqrtResult := sqrt.Sqrt(4)
   addResult := add.Add(4, 4)
-  fmt.Fprintf(w, "Hello, World! (%v, %v, %v)", sqrtResult, addResult, val) // send data to client side
+  fmt.Fprintf(w, "Hello, World! v1 (%v, %v, %v)", sqrtResult, addResult, val) // send data to client side
 }
 
 func main() {
