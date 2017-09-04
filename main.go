@@ -18,7 +18,7 @@ func sayhelloName(w http.ResponseWriter, r *http.Request) {
   // fmt.Println("scheme", r.URL.Scheme)
   // fmt.Println(r.Form["url_long"])
   client := redis.NewClient(&redis.Options{
-		Addr:     "localhost:6379",
+		Addr:     "redis-service.dev:6379",
 		Password: "", // no password set
 		DB:       0,  // use default DB
 	})
